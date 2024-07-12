@@ -5,7 +5,8 @@ import numpy as np
 import pandas as pd
 from scipy.ndimage import shift, rotate
 from torchvision.transforms import functional as TF
-
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import normal_intensity_CT
 
 

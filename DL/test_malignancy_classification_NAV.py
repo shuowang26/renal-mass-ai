@@ -23,7 +23,10 @@ import torch
 from tqdm import tqdm
 import os
 import numpy as np
-from DL.networks import HybridNAV
+# from DL.networks import HybridNAV
+from networks import HybridNAV
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import normal_intensity_CT
 
 # build model

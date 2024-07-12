@@ -29,8 +29,10 @@ import copy
 import argparse
 import numpy as np
 from sklearn import metrics
-from DL.networks import HybridNAV
-from DL.dataset import HybridSlice
+# from DL.networks import HybridNAV
+# from DL.dataset import HybridSlice
+from networks import HybridNAV
+from dataset import HybridSlice
 from torch.utils.data.sampler import WeightedRandomSampler
 
 

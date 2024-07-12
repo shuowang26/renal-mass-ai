@@ -29,8 +29,10 @@ import copy
 import argparse
 import numpy as np
 from sklearn import metrics
-from DL.networks import HybridNAV
-from DL.dataset import HybridSlice
+# from DL.networks import HybridNAV
+# from DL.dataset import HybridSlice
+from networks import HybridNAV
+from dataset import HybridSlice
 from torch.utils.data.sampler import WeightedRandomSampler
 
 
@@ -172,8 +174,11 @@ if __name__ == '__main__':
 
     best_model, best_auc = [], 0
 
+    
+    import os  
+    print("Current working directory:", os.getcwd())
     # load dataset
-    train_dataset = HybridSlice(csv_path='csv/demo_split.csv',
+    train_dataset = HybridSlice(csv_path=f'{os.getcwd()}/csv/demo_split.csv',
                                 fold='train', binary='01', augmentation=True, normal=True)
     tmp = train_dataset.get_classes_for_all_imgs()
     weights = 1 / torch.Tensor([np.sum(np.array(tmp) == 0), np.sum(np.array(tmp) == 1)])
@@ -181,7 +186,7 @@ if __name__ == '__main__':
     sampler = WeightedRandomSampler(weights=samples_weights, num_samples=len(tmp))
     train_dataloader = DataLoader(train_dataset, batch_size, shuffle=False, num_workers=4, sampler=sampler)
 
-    val_dataset = HybridSlice(csv_path='csv/demo_split.csv',
+    val_dataset = HybridSlice(csv_path=f'{os.getcwd()}/csv/demo_split.csv',
                               fold='val', binary='01', augmentation=False, normal=True)
     val_dataloader = DataLoader(val_dataset, batch_size, shuffle=False, num_workers=4)
 
