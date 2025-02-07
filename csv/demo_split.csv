@@ -1,0 +1,7 @@
+pid,path,class,split
+P00001,./demo/npy/P00001,0,train
+P00002,./demo/npy/P00002,0,val
+P00003,./demo/npy/P00003,1,internal
+P00004,./demo/npy/P00004,1,external
+P00005,./demo/npy/P00005,2,prospective
+P00006,./demo/npy/P00006,1,prospective
